@@ -10,7 +10,7 @@ function App() {
     <>
       <button
         onClick={() => setColor(newColor)}
-        style={{ backgroundColor: color }}
+        style={{ backgroundColor: checked ? "gray" : color }}
         disabled={checked}
       >
         change color to {newColor}

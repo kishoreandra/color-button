@@ -33,7 +33,7 @@ test("initial conditions", () => {
   expect(checkbox).not.toBeChecked(); // use `not` on Custom Matcher's for opposite match
 });
 
-test("button state w.r.t to checkbox state", () => {
+test("button state w.r.t to checkbox state and gray when button is disabled", () => {
   render(<App />);
   const colorButton = screen.getByRole("button", {
     name: "change color to blue",
@@ -45,6 +45,7 @@ test("button state w.r.t to checkbox state", () => {
 
   expect(checkbox).toBeChecked();
   expect(colorButton).toBeDisabled();
+  expect(colorButton).toHaveStyle({ backgroundColor: "gray" });
 
   // click again on checkbox - check it is unchecked and button is enabled
   fireEvent.click(checkbox);
