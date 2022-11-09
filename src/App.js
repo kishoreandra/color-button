@@ -6,9 +6,10 @@ export function spacesBeforeCamelCase(colorName) {
 }
 
 function App() {
-  const [color, setColor] = useState("red");
+  const [color, setColor] = useState("MediumVioletRed");
   const [checked, setChecked] = useState(false);
-  const newColor = color === "red" ? "blue" : "red";
+  const newColor =
+    color === "MediumVioletRed" ? "MidnightBlue" : "MediumVioletRed";
 
   return (
     <>
@@ -17,7 +18,7 @@ function App() {
         style={{ backgroundColor: checked ? "gray" : color }}
         disabled={checked}
       >
-        change color to {newColor}
+        change color to {spacesBeforeCamelCase(newColor)}
       </button>
       <label htmlFor="disable-button">Disable the button</label>
       <input
