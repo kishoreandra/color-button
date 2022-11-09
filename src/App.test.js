@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import App from "./App";
+import App, { spacesBeforeCamelCase } from "./App";
 
 test("screen to show a button with text", () => {
   render(<App />);
@@ -52,4 +52,18 @@ test("button state w.r.t to checkbox state and gray when button is disabled", ()
 
   expect(checkbox).not.toBeChecked();
   expect(colorButton).toBeEnabled();
+});
+
+describe("spaces before camel-case letters", () => {
+  test("spaces for no camelCase", () => {
+    expect(spacesBeforeCamelCase("Red")).toBe("Red");
+  });
+
+  test("one camel-case letter", () => {
+    expect(spacesBeforeCamelCase("MidnightBlue")).toBe("Midnight Blue");
+  });
+
+  test("more than one camel-cased letter", () => {
+    expect(spacesBeforeCamelCase("MidNightRose")).toBe("Mid Night Rose");
+  });
 });
