@@ -38,7 +38,7 @@ test("button state w.r.t to checkbox state", () => {
   const colorButton = screen.getByRole("button", {
     name: "change color to blue",
   });
-  const checkbox = screen.getByRole("checkbox");
+  const checkbox = screen.getByRole("checkbox", { name: "Disable the button" });
 
   // click checkbox - check it is checked and button is disabled
   fireEvent.click(checkbox);
